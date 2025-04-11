@@ -1,0 +1,298 @@
+:root {
+    --primary-color: #0a84ff; /* Яркий синий для акцентов */
+    --secondary-color: #1c1c1e; /* Очень темный фон */
+    --text-color: #f2f2f7;    /* Светлый текст */
+    --card-bg: #2c2c2e;     /* Фон для карточек/блоков */
+    --border-color: #3a3a3c;  /* Цвет границ */
+    --link-hover: #64d2ff;   /* Светло-синий при наведении */
+    --light-text: rgba(242, 242, 247, 0.6); /* Полупрозрачный светлый текст */
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--text-color); 
+    margin-top: 0;
+    margin-bottom: 0.75em; /* Немного увеличил отступ снизу */
+    font-weight: 600;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: 1.5em;}
+h3 { font-size: 1.4rem; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: none; /* Убираем подчеркивание по умолчанию */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    /* Возвращаем полупрозрачный темный фон */
+    background-color: rgba(44, 44, 46, 0.8); 
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: none; /* Убираем тень, она не нужна на темном */
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color); 
+}
+
+.logo:hover {
+    color: var(--text-color);
+    text-decoration: none; 
+}
+
+/* Навигация в шапке */
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav li {
+    margin-left: 1.5rem;
+}
+
+.nav a {
+    /* Текст ссылок делаем светлым */
+    color: var(--text-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    padding: 5rem 0; /* Немного уменьшил отступ */
+    text-align: center;
+    /* Можно вернуть градиент или оставить просто темный фон */
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero h1 {
+    margin-bottom: 0.5em;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5em;
+    color: var(--light-text); /* Используем полупрозрачный светлый */
+    max-width: 650px; /* Немного увеличил */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px; /* Вернул скругление побольше */
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border: none; /* Убираем рамку */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--link-hover); /* Используем светлый hover цвет */
+    border-color: var(--link-hover);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(10, 132, 255, 0.4); /* Тень для синей кнопки */
+    text-decoration: none; 
+}
+
+.hero-note {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+/* Общие стили для секций */
+section {
+    padding: 4rem 0;
+}
+
+/* Секция О Форуме и Цель */
+.about, .purpose {
+    /* Фон остается темным, как основной */
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+/* Убрал фон --card-bg, чтобы сливались с основным */
+.about p, .purpose p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Features Section */
+.features {
+    padding: 4rem 0;
+    background-color: var(--secondary-color); 
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    /* Возвращаем фон карточки */
+    background-color: var(--card-bg);
+    padding: 2rem; /* Увеличил padding обратно */
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Тень для темной темы */
+    border-color: var(--border-color); /* Убираем изменение цвета рамки */
+}
+
+.feature-item i {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    opacity: 0.7; /* Возвращаем прозрачность */
+}
+
+.feature-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    color: var(--light-text); /* Используем полупрозрачный светлый */
+    font-size: 0.95rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 4rem 0;
+    background-color: var(--card-bg); /* Фон карточки */
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.contact p {
+    color: var(--text-color);
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.contact li {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.contact li i {
+    margin-right: 0.8rem;
+    color: var(--primary-color);
+    width: 20px; 
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    padding: 2.5rem 0; /* Немного больше отступ */
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    border-top: 1px solid var(--border-color);
+    background-color: var(--secondary-color);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .hero { padding: 4rem 0; }
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Немного уменьшим мин. ширину */
+        gap: 1.5rem;
+    }
+    .header .container {
+        flex-direction: column;
+    }
+    .logo {
+        margin-bottom: 0.5rem;
+    }
+    .nav ul {
+        justify-content: center;
+        flex-wrap: wrap; /* Позволяем переносить пункты */
+    }
+    .nav li {
+        margin: 0.3rem 0.5rem; /* Уменьшаем отступы */
+    }
+    section { padding: 3rem 0; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    .hero .subtitle { font-size: 1rem; }
+    .btn { padding: 10px 20px; font-size: 0.9rem; }
+    .feature-item { padding: 1.5rem; }
+    .features-grid {
+        grid-template-columns: 1fr; /* Один столбец */
+    }
+    .contact li {
+        font-size: 1rem;
+    }
+} 
